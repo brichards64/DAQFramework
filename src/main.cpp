@@ -15,14 +15,13 @@ int main(){
   //AnalysePSEC apsec;
   RootStorePSEC rootpsec;
 
+  int boards=(72*8)-1;
 
   tools.Add("PSEC4Reader",&rpsec,"configfiles/PSEC4config");
-  for(int j=0;j<72;j++){
-    for(int i=0;i<8;i++){
+  for(int j=0;j<boards;j++){
       PSEC4Sim *spsec=new  PSEC4Sim;
       tools.Add("PSEC4Sim",spsec,"configfiles/PSEC4config");
     }
-  }
   //tools.Add("PSEC4Sim",&spsec,"configfiles/PSEC4config");
   // tools.Add("EventBuilder",&eventbuilder,"EventBuilderconfig");
   //tools.Add("PSEC4Analyser",&apsec,"EventBuilderconfig");
