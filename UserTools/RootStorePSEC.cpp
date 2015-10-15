@@ -69,22 +69,24 @@ void RootStorePSEC::Execute(){
      pmtX=element->pmtlocations.at(chan).at(0);
      pmtY=element->pmtlocations.at(chan).at(1);
      pmtZ=element->pmtlocations.at(chan).at(2);
-     theta=acos(pmtX/5.5);
+     theta=element->pmtlocations.at(chan).at(3);
      //raw=new int[points];
      //time=new float[points];
      //calib= new float[points];
      
      for(int i=0;i<element->numreadouts;i++){
        for(int j=0;j<element->numpoints;j++){
+	 // std::cout<<element->caldata.at(i).at(chan).at(j)<<std::endl;
 	 time[(i*element->numpoints)+j]=element->starttime+(element->timestep*((i*element->numpoints)+j));
 	 raw[(i*element->numpoints)+j]=element->rawdata.at(i).at(chan).at(j);
 	 calib[(i*element->numpoints)+j]=element->caldata.at(i).at(chan).at(j);
 	 
+
        }
      }
      
      tree->Fill();
-   }
+  }
   }  
   
   file->Add(m_data->GetTTree("Events"));

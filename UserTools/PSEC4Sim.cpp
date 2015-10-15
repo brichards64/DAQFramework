@@ -58,10 +58,11 @@ void PSEC4Sim::Execute(){
     tmp->pmtids[i]=i+tmppmtid;
     std::vector<float> tmploc;
     tmploc.push_back(cos((((tmp->cardid)*6)+(i+1))*angle)*r);
-    std::cout<<"i= "<<i<<" angle multiplier "<<((tmp->cardid)*6)+(i+1)<<std::endl;
+     std::cout<<"i= "<<i<<" angle multiplier "<<((tmp->cardid)*6)+(i+1)<<std::endl;
 
     tmploc.push_back(sin((((tmp->cardid)*6)+(i+1))*angle)*r);
     tmploc.push_back((dist/2.0)+(tmp->crateid*dist));
+    tmploc.push_back((((tmp->cardid)*6)+(i+1))*angle);
     tmp->pmtlocations.push_back(tmploc);
   }
   
@@ -70,8 +71,10 @@ void PSEC4Sim::Execute(){
   
 time_t seconds;
 
-  seconds = time (NULL);
-  eventGenerator->SetSeed((uint) seconds);
+// seconds = time (NULL);
+ uint seed= ((dist/2.0)+(tmp->crateid*dist)+((tmp->cardid)*6))*100;
+  //std::cout<<"seed = "<<((uint) seconds)<<std::endl;
+  eventGenerator->SetSeed(seed);
   std::vector<std::vector<std::vector<float> > >tmpf3;
   std::vector< std::vector<std::vector<int> > >tmpi3;
 
@@ -86,8 +89,8 @@ time_t seconds;
     std::vector<int> tmpi;
     
     for (int i=0;i<256;i++){
-      tmpf.push_back(eventGenerator->Gaus(0.0055,0.002));
-      tmpi.push_back(floor(eventGenerator->Gaus(2100.0,200.0)));
+      tmpf.push_back(eventGenerator->Gaus(0.00,0.002));
+      tmpi.push_back(floor(eventGenerator->Gaus(2100.0,50.0)));
     }
     tmpf2.push_back(tmpf);
     tmpi2.push_back(tmpi);

@@ -47,6 +47,7 @@ void PSEC4Reader::Execute(){
     tmploc.push_back(cos((i+1)*angle)*r);
     tmploc.push_back(sin((i+1)*angle)*r);
     tmploc.push_back(dist/2);
+    tmploc.push_back((i+1)*angle);
     tmp->pmtlocations.push_back(tmploc);
   }
   

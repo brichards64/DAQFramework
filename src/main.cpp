@@ -1,7 +1,7 @@
 #include "ToolChain.h"
 #include "PSEC4Reader.h"
 #include "PSEC4Sim.h"
-//#include "EventBuilder.h"
+#include "EventBuilder.h"
 //#include "AnalysePSEC.h"
 #include "RootStorePSEC.h"
 
@@ -11,7 +11,7 @@ int main(){
   ToolChain tools;
   PSEC4Reader rpsec;
   //PSEC4Sim spsec;
-  //  EventBuilder eventbuilder;
+  EventBuilder eventbuilder;
   //AnalysePSEC apsec;
   RootStorePSEC rootpsec;
 
@@ -23,7 +23,7 @@ int main(){
       tools.Add("PSEC4Sim",spsec,"configfiles/PSEC4config");
     }
   //tools.Add("PSEC4Sim",&spsec,"configfiles/PSEC4config");
-  // tools.Add("EventBuilder",&eventbuilder,"EventBuilderconfig");
+  tools.Add("EventBuilder",&eventbuilder,"configfiles/EventBuilderconfig");
   //tools.Add("PSEC4Analyser",&apsec,"EventBuilderconfig");
   tools.Add("PSEC4RootStore",&rootpsec,"configfiles/PSEC4config");
   

@@ -1,2 +1,2 @@
-threshnum 2
-threshold 0.003
+threshnum 20
+threshold 0.005
