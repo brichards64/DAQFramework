@@ -5,7 +5,7 @@ MyTool::MyTool():Tool(){}
 
 bool MyTool::Initialise(std::string configfile, DataModel &data){
 
-  if(config!="")  m_variables.Initialise(configfile);
+  if(configfile!="")  m_variables.Initialise(configfile);
   //m_variables.Print();
 
   m_data= &data;
