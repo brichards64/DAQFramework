@@ -18,9 +18,9 @@ class RootStorePSEC: public Tool {
  public:
 
   RootStorePSEC();
-  void Initialise(std::string configfile,DataModel &data);
-  void Execute();
-  void Finalise();
+  bool Initialise(std::string configfile,DataModel &data);
+  bool Execute();
+  bool Finalise();
 
 
  private:

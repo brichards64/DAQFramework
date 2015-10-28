@@ -3,7 +3,7 @@
 EventBuilder::EventBuilder():Tool(){}
 
 
-void EventBuilder::Initialise(std::string configfile, DataModel &data){
+bool EventBuilder::Initialise(std::string configfile, DataModel &data){
 
   m_variables.Initialise(configfile);
   m_data= &data;
@@ -40,10 +40,11 @@ void EventBuilder::Initialise(std::string configfile, DataModel &data){
   tree->Branch("r5",&r5,"r5/I");
   */
 
+  return true;
 }
 
 
-void EventBuilder::Execute(){
+bool EventBuilder::Execute(){
       //std::cout<<"Debug 1"<<std::endl;
   
   // float threashold=0.003;
@@ -249,9 +250,10 @@ void EventBuilder::Execute(){
   }
   */
 
+  return true;
 }
 
 void EventBuilder::Finalise(){
   
-  
+  return true;
 }

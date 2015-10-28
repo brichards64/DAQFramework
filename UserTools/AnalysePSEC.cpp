@@ -3,7 +3,7 @@
 AnalysePSEC::AnalysePSEC():Tool(){}
 
 
-void AnalysePSEC::Initialise(std::string configfile, DataModel &data){
+bool AnalysePSEC::Initialise(std::string configfile, DataModel &data){
 
   m_variables.Initialise(configfile);
 
@@ -21,13 +21,13 @@ void AnalysePSEC::Initialise(std::string configfile, DataModel &data){
   
   events=m_data->GetTTree("Events");
 
-
+  return true;
   
   
 }
 
 
-void AnalysePSEC::Execute(){
+bool AnalysePSEC::Execute(){
   
   events->SetBranchAddress("c0", &c0, &b_c0);
   events->SetBranchAddress("c1", &c1, &b_c1);
@@ -63,10 +63,12 @@ void AnalysePSEC::Execute(){
       cosmics->Fill();
     }
   }
+
+  return true;
 }
 
 
-void AnalysePSEC::Finalise(){
+bool AnalysePSEC::Finalise(){
 
-  
+  return true;
 }

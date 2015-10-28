@@ -3,7 +3,7 @@
 RootStorePSEC::RootStorePSEC():Tool(){}
 
 
-void RootStorePSEC::Initialise(std::string configfile, DataModel &data){
+bool RootStorePSEC::Initialise(std::string configfile, DataModel &data){
 
   // m_variables.Initialise(configfile);
 
@@ -28,10 +28,12 @@ void RootStorePSEC::Initialise(std::string configfile, DataModel &data){
   tree->Branch("r4",&r4,"r4/I");
   tree->Branch("r5",&r5,"r5/I");
   */
+
+ return true;
 }
 
 
-void RootStorePSEC::Execute(){
+bool RootStorePSEC::Execute(){
   
   tree=new TTree("Elements","Elements");
  
@@ -92,13 +94,16 @@ void RootStorePSEC::Execute(){
   file->Add(m_data->GetTTree("Events"));
   file->Add(m_data->GetTTree("Cosmics"));
   
+  return true;
 }
    
-void RootStorePSEC::Finalise(){
+bool RootStorePSEC::Finalise(){
   
   file->Write();
        //std::cout<<"DEBUG 9 "<<std::endl;
   file->Close();
+
+  return true;
 }
 
 

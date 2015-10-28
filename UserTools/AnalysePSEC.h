@@ -15,9 +15,9 @@ class AnalysePSEC: public Tool {
  public:
 
   AnalysePSEC();
-  void Initialise(std::string configfile,DataModel &data);
-  void Execute();
-  void Finalise();
+  bool Initialise(std::string configfile,DataModel &data);
+  bool Execute();
+  bool Finalise();
 
 
  private:

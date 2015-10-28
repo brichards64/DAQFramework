@@ -12,9 +12,9 @@ class MyTool: public Tool {
  public:
 
   MyTool();
-  void Initialise(std::string configfile,Data &data);
-  void Execute();
-  void Finalise();
+  bool Initialise(std::string configfile,DataModel &data);
+  bool Execute();
+  bool Finalise();
 
 
  private:

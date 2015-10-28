@@ -3,7 +3,7 @@
 PSEC4Reader::PSEC4Reader():Tool(){}
 
 
-void PSEC4Reader::Initialise(std::string configfile, DataModel &data){
+bool PSEC4Reader::Initialise(std::string configfile, DataModel &data){
  
   m_variables.Initialise(configfile);
   
@@ -11,7 +11,7 @@ void PSEC4Reader::Initialise(std::string configfile, DataModel &data){
   m_data= &data;
   
   if(command.INITIALIZE() != 0){
-    return;
+    return false;
     
   }
   
@@ -25,10 +25,12 @@ void PSEC4Reader::Initialise(std::string configfile, DataModel &data){
   m_data->vars.Set("cardid",0);
   m_data->vars.Set("pmtid",5);
   
+
+  return true;
 }
 
 
-void PSEC4Reader::Execute(){
+bool PSEC4Reader::Execute(){
   
   PSECElement *tmp=new PSECElement(6);
   tmp->crateid=0;
@@ -55,10 +57,12 @@ void PSEC4Reader::Execute(){
   tmp->rawdata=command.rawdat;
   
   m_data->elements.push_back(tmp);
+
+  return true;
 }
 
 
-void PSEC4Reader::Finalise(){
+bool PSEC4Reader::Finalise(){
 
-
+return true
 }

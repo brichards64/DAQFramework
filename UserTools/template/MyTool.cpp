@@ -3,24 +3,24 @@
 MyTool::MyTool():Tool(){}
 
 
-void MyTool::Initialise(std::string configfile, Data &data){
+bool MyTool::Initialise(std::string configfile, DataModel &data){
 
-  m_variables.Initialise(configfile);
-  m_variables.Print();
+  if(config!="")  m_variables.Initialise(configfile);
+  //m_variables.Print();
 
   m_data= &data;
 
-
+  return true;
 }
 
 
-void MyTool::Execute(){
+bool MyTool::Execute(){
 
-
+  return true;
 }
 
 
-void MyTool::Finalise(){
+bool MyTool::Finalise(){
 
-
+  return true;
 }

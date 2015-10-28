@@ -5,8 +5,8 @@
 #include <string>
 #include <vector>
 
-#include "TTree.h"
-#include "TBranch.h"
+//#include "TTree.h"
+//#include "TBranch.h"
 
 #include "Store.h"
 
@@ -37,8 +37,8 @@ class DataModel{
  public:
   
   DataModel();
-  TTree* GetTTree(std::string name);
-  void AddTTree(std::string name,TTree *tree);
+  //TTree* GetTTree(std::string name);
+  //void AddTTree(std::string name,TTree *tree);
 
   Store vars;
 
@@ -47,7 +47,7 @@ class DataModel{
 
  private:
   
-  std::map<std::string,TTree*> m_trees; 
+  //std::map<std::string,TTree*> m_trees; 
   
   
   

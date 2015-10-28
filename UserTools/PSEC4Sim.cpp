@@ -3,7 +3,7 @@
 PSEC4Sim::PSEC4Sim():Tool(){}
 
 
-void PSEC4Sim::Initialise(std::string configfile, DataModel &data){
+bool PSEC4Sim::Initialise(std::string configfile, DataModel &data){
 
   m_variables.Initialise(configfile);
   // m_variables.Print();
@@ -18,13 +18,13 @@ void PSEC4Sim::Initialise(std::string configfile, DataModel &data){
 
  acq_rate_usecs = (int) (1000000 / acq_rate_hertz); 
 
-  
+ return true;  
 
 
 }
 
 
-void PSEC4Sim::Execute(){
+bool PSEC4Sim::Execute(){
   
   PSECElement *tmp=new PSECElement(6);
   
@@ -104,11 +104,14 @@ time_t seconds;
   tmp->rawdata=tmpi3;
   
   m_data->elements.push_back(tmp);
+
+  return true;
+
 }
 
 
-void PSEC4Sim::Finalise(){
+bool PSEC4Sim::Finalise(){
 
-
+  return true;
 }
 
