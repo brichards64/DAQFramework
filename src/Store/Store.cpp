@@ -17,7 +17,7 @@ void Store::Initialise(std::string filename){
 	std::string key;
 	std::string value;
 	std::stringstream stream(line);
-	while(stream>>key>>value) m_variables[key]=value;
+	if(stream>>key>>value) m_variables[key]=value;
 	
       }
       
