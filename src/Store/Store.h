@@ -15,7 +15,8 @@ class Store{
   Store();
   void Initialise(std::string filename);
   void Print();
-  
+  void Delete();
+
   template<typename T> void Get(std::string name,T &out){
     std::stringstream stream(m_variables[name]);
     stream>>out;

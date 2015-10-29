@@ -37,3 +37,11 @@ void Store::Print(){
   }
   
 }
+
+
+void Store::Delete(){
+
+  m_variables.clear();
+
+
+}
